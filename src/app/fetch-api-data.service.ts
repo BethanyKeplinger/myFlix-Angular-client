@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, catchError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators'
 
 //Declaring the api url that will providd data for the client app
@@ -15,13 +16,12 @@ const username = localStorage.getItem('user');
 @Injectable({
   providedIn: 'root'
 })
-export class UserRegistrationService {
+export class FetchApiDataService {
   //Inject the HttpClient module to the constructor params
   //This will provide HttpClient to the entire class, making it available via this.http
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-  }
   //Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -31,8 +31,7 @@ export class UserRegistrationService {
   }
 
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
   }
@@ -163,14 +162,14 @@ export class UserRegistrationService {
   }
 
   //non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
-      console.error('Some error has occurted:', error.error.message);
+      console.error('Some error has occurred:', error.error.message);
     } else {
       console.error(
         `Error Status code ${error.status}` +
