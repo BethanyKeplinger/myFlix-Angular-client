@@ -1,0 +1,43 @@
+// $backgroundColor: #082342;
+$cardbackgroundColor: #fff;
+$backgroundImage: URL("./assets/movie-background.jpeg");
+
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    // background-color: $backgroundColor;
+    background-image: $backgroundImage;
+    height: 100%;
+}
+
+.welcome-card {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 400px;
+    background-color: $cardbackgroundColor;
+    align-items: center;
+}
+
+.welcome-card-header {
+    margin-bottom: 50px;
+}
+
+.welcome-card-actions {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.signup-button {
+    background-color: #000;
+    color: #fff
+}
+
+.login-button {
+    background-color: #000;
+    color: #fff
+}
