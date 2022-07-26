@@ -82,8 +82,10 @@ export class MovieCardComponent implements OnInit {
   addFavMovie(id: string): void {
     console.log(id);
     this.fetchApiData.addFavMovie(id).subscribe((result) => {
+      this.snackBar.open('Movie has been added to your Favorites List')
       console.log(result);
       this.ngOnInit();
+      window.location.reload();
     })
   }
 
