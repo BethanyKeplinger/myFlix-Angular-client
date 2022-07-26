@@ -1,0 +1,10 @@
+$backgroundImage: URL("./assets/movie-background.jpeg");
+
+.synopsis-dialog {
+    background-image: $backgroundImage;
+    color: #000;
+}
+
+.synopsis-title {
+    text-align: center;
+}
