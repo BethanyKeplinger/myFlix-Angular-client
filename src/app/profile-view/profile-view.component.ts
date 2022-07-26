@@ -18,7 +18,8 @@ import { SynopsisComponent } from '../synopsis/synopsis.component';
 export class ProfileViewComponent implements OnInit {
   user: any = {};
   movies: any[] = [];
-  favoriteMovies: any = []
+  favoriteMovies: any = [];
+  favs: any = null;
   displayElement: boolean = false
 
   constructor(
@@ -111,7 +112,9 @@ export class ProfileViewComponent implements OnInit {
   addFavMovie(id: string): void {
     console.log(id);
     this.fetchApiData.addFavMovie(id).subscribe((result) => {
-      console.log(result);
+      this.snackBar.open('Movie has been add to your Favorites List', 'OK', {
+        duration: 2000,
+      })
       this.ngOnInit();
     })
   }
@@ -119,8 +122,12 @@ export class ProfileViewComponent implements OnInit {
   removeFavMovie(id: string): void {
     console.log(id);
     this.fetchApiData.deleteFavMovie(id).subscribe((result) => {
-      console.log(result);
+      this.snackBar.open('Movie has been removed from Favorites List', 'OK', {
+        duration: 2000,
+      });
       this.ngOnInit;
+      window.location.reload();
+      return this.favs;
     })
   }
 
