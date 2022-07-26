@@ -1,0 +1,9 @@
+$backgroundImage: URL("./assets/movie-background.jpeg");
+
+.movie-card {
+    background-image: $backgroundImage;
+}
+
+.favorites-button svg {
+    fill: red;
+}
