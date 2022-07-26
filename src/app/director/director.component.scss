@@ -1,0 +1,10 @@
+$backgroundImage: URL("./assets/movie-background.jpeg");
+
+.director-dialog {
+    background-image: $backgroundImage;
+    color: #000;
+}
+
+.director-title {
+    text-align: center;
+}
