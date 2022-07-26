@@ -42,7 +42,7 @@ export class UserRegistrationFormComponent implements OnInit {
         duration: 2000
       });
     }, (result) => {
-      this.snackBar.open('User registration successful', 'OK', {
+      this.snackBar.open(result, 'OK', {
         duration: 2000
       });
     });
