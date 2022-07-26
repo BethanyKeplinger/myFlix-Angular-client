@@ -1,9 +1,21 @@
 $backgroundImage: URL("./assets/movie-background.jpeg");
 
-.movie-card {
+.full-page {
     background-image: $backgroundImage;
+    // height: 150%;
+    height: auto;
+
 }
 
-// .favorites-button {
-//     color: red;
-// }
+.movie-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-card {
+    height: 320px;
+    width: 170px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
