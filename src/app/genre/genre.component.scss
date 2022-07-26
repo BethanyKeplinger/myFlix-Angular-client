@@ -1,0 +1,11 @@
+$backgroundImage: URL("./assets/movie-background.jpeg");
+
+.genre-dialog {
+    // text-align: center;
+    background-image: $backgroundImage;
+    color: #000
+}
+
+.genre-title {
+    text-align: center;
+}
