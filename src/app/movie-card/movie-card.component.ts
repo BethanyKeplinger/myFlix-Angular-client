@@ -16,6 +16,8 @@ import { DirectorComponent } from '../director/director.component';
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   favoriteMovies: any[] = [];
+  currentUser: any = null
+  currentFavs: any[] = [];
 
   constructor(
     public fetchApiData: UserRegistrationService,
@@ -26,6 +28,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUser();
   }
 
   getMovies(): void {
@@ -36,16 +39,16 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  getFavMovies(id: string): void {
-    this.fetchApiData.getFavMovies(id).subscribe((resp: any) => {
-      this.favoriteMovies = resp;
-      console.log(this.favoriteMovies);
-      return this.favoriteMovies;
-    });
+  getUser(): void {
+    const username = localStorage.getItem('user');
+    this.fetchApiData.getUser(username).subscribe((resp: any) => {
+      this.currentUser = resp.Username;
+      this.currentFavs = resp.FavoriteMovies;
+    })
   }
 
   isFav(id: string): boolean {
-    return this.favoriteMovies.includes(id)
+    return this.currentFavs.includes(id)
   }
 
   openDirectorDialog(name: string, bio: string, Birth: Date): void {
@@ -94,6 +97,7 @@ export class MovieCardComponent implements OnInit {
     this.fetchApiData.deleteFavMovie(id).subscribe((result) => {
       console.log(result);
       this.ngOnInit;
+      window.location.reload();
     })
   }
 
