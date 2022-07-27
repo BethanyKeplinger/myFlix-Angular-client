@@ -14,8 +14,15 @@ export class EditProfileComponent implements OnInit {
   Username = localStorage.getItem('user');
   user: any = {};
 
-
   @Input() userData: any = {};
+
+  /**
+   * 
+   * @param fetchApiData 
+   * @param dialogRef 
+   * @param router 
+   * @param snackBar 
+   */
 
   constructor(
     public fetchApiData: UserRegistrationService,

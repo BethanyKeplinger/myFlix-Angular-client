@@ -19,6 +19,13 @@ export class MovieCardComponent implements OnInit {
   currentUser: any = null
   currentFavs: any[] = [];
 
+  /**
+   * 
+   * @param fetchApiData 
+   * @param snackBar 
+   * @param dialog 
+   */
+
   constructor(
     public fetchApiData: UserRegistrationService,
     public snackBar: MatSnackBar,

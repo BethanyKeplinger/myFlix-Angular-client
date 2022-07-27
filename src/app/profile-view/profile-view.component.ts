@@ -22,6 +22,14 @@ export class ProfileViewComponent implements OnInit {
   favs: any = null;
   displayElement: boolean = false
 
+  /**
+   * 
+   * @param fetchApiData 
+   * @param dialog 
+   * @param router 
+   * @param snackBar 
+   */
+
   constructor(
     public fetchApiData: UserRegistrationService,
     public dialog: MatDialog,
