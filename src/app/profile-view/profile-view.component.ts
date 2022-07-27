@@ -112,7 +112,7 @@ export class ProfileViewComponent implements OnInit {
   addFavMovie(id: string): void {
     console.log(id);
     this.fetchApiData.addFavMovie(id).subscribe((result) => {
-      this.snackBar.open('Movie has been add to your Favorites List', 'OK', {
+      this.snackBar.open('Movie has been added to your Favorites List', 'OK', {
         duration: 2000,
       })
       this.ngOnInit();
